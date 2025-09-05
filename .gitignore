@@ -1,0 +1,15 @@
+# workspace build outputs
+workspaces/**/build/
+workspaces/**/install/
+workspaces/**/log/
+workspaces/**/.colcon/
+
+# YDLidar-SDK build outputs
+external/YDLidar-SDK/build/
+external/YDLidar-SDK/cmake-build*/
+
+# ignore ALL VESC firmware archives...
+external/vesc_fw/vesc_fw_archive/
+# ...except this exact folder we want
+!external/vesc_fw/vesc_fw_archive/6.05/
+!external/vesc_fw/vesc_fw_archive/6.05/410_o_411_o_412/

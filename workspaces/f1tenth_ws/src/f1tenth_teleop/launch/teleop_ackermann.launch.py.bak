@@ -1,0 +1,35 @@
+from launch import LaunchDescription
+from launch_ros.actions import Node
+from ament_index_python.packages import get_package_share_directory
+import os
+
+def generate_launch_description():
+    cfg = os.path.join(
+        get_package_share_directory('f1tenth_teleop'),
+        'config',
+        'teleop_twist_joy.yaml'
+    )
+
+    return LaunchDescription([
+        Node(
+            package='joy', executable='joy_node', name='joy',
+            parameters=[{'dev': '/dev/input/js0', 'deadzone': 0.05, 'autorepeat_rate': 20.0}]
+        ),
+        Node(
+            package='teleop_twist_joy', executable='teleop_node', name='teleop',
+            parameters=[cfg]  # <-- load your YAML here
+        ),
+        Node(
+            package='f1tenth_teleop', executable='twist_to_ackermann', name='twist_to_ack',
+            parameters=[{
+                'wheelbase': 0.33,
+                'max_steering_angle': 0.42,
+                'speed_limit': 1.0,
+                'twist_topic': '/cmd_vel',
+                'ackermann_topic': '/ackermann_cmd',
+                'frame_id': 'base_link',
+                'timeout': 0.5
+		'curv_denom_min': 0.15,
+            }]
+        )
+    ])
