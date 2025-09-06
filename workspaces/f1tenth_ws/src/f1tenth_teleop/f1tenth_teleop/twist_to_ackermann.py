@@ -18,7 +18,7 @@ class TwistToAck(Node):
         self.declare_parameter('max_steering_angle', 0.42)
         self.declare_parameter('speed_limit', 1.0)
         self.declare_parameter('twist_topic', '/cmd_vel')
-        self.declare_parameter('ackermann_topic', '/ackermann_cmd')
+        self.declare_parameter('ackermann_topic', '/teleop_ackermann')
         self.declare_parameter('frame_id', 'base_link')
         self.declare_parameter('timeout', 0.5)
         self.declare_parameter('curv_denom_min', 0.15)  # floor on speed used for curvature at near-zero v

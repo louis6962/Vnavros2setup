@@ -46,14 +46,14 @@ def generate_launch_description():
             default_value=default_config_joystick,
             description='Default joystick config file'),
         DeclareLaunchArgument(
-            'cmd_vel_out',
-            default_value='ackermann_mux/cmd_vel',
-            description='cmd vel output topic'),
+            'ackermann_cmd_out',
+            default_value='ackermann_cmd',
+            description='Ackermann command output topic'),
         Node(
             package='ackermann_mux',
             executable='ackermann_mux',
             output='screen',
-            remappings={('/cmd_vel_out', LaunchConfiguration('cmd_vel_out'))},
+            remappings=[('ackermann_cmd', LaunchConfiguration('ackermann_cmd_out'))],
             parameters=[
                 LaunchConfiguration('config_locks'),
                 LaunchConfiguration('config_topics'),

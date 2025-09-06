@@ -28,15 +28,6 @@ def generate_launch_description():
             package='f1tenth_teleop',
             executable='twist_to_ackermann',
             name='twist_to_ack',
-            parameters=[{
-                'wheelbase': 0.33,
-                'max_steering_angle': 0.42,
-                'speed_limit': 1.0,
-                'twist_topic': '/cmd_vel',
-                'ackermann_topic': '/ackermann_cmd',
-                'frame_id': 'base_link',
-                'timeout': 0.5,
-                'curv_denom_min': 0.15
-            }]
+            parameters=[teleop_yaml]
         ),
     ])
