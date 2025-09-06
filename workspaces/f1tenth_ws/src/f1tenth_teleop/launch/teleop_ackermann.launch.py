@@ -33,7 +33,9 @@ def generate_launch_description():
                 'max_steering_angle': 0.42,
                 'speed_limit': 1.0,
                 'twist_topic': '/cmd_vel',
-                'ackermann_topic': '/ackermann_cmd',
+                # Publish to the topic expected by ackermann_mux
+                # so the multiplexer can forward commands to the VESC
+                'ackermann_topic': '/joy_vel',
                 'frame_id': 'base_link',
                 'timeout': 0.5,
                 'curv_denom_min': 0.15
