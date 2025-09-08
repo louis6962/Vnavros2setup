@@ -1,5 +1,52 @@
 # Vnavros2setup
 
+# Install command for Vesc + firmware (temp): 
+
+### 1) Go to the repo
+```cd ~/Vnavros2setup```
+
+### 2) Ensure flatpak + flathub
+```sudo apt update && sudo apt install -y flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo```
+```
+
+### 3) Try installing the exact pinned commit (preferred)
+```if [ -f external/vesc_tool/vesc_tool.flatpak.commit ]; then
+  COMMIT=$(cat external/vesc_tool/vesc_tool.flatpak.commit)
+  echo "Installing VESC Tool at commit: $COMMIT"
+  flatpak install -y --noninteractive flathub com.vesc_project.VescTool//stable --commit="$COMMIT" || FALLBACK=1
+else
+  FALLBACK=1
+fi
+```
+
+### 4) If commit install didn’t run, try your flatpakref from the repo
+```if [ "${FALLBACK:-0}" = "1" ]; then
+  if [ -f external/vesc_tool/vesc_tool.flatpak.info ]; then
+    cp external/vesc_tool/vesc_tool.flatpak.info /tmp/vesc_tool.flatpakref
+    flatpak install -y /tmp/vesc_tool.flatpakref || SECOND_FALLBACK=1
+  else
+    SECOND_FALLBACK=1
+  fi
+fi
+```
+
+### 5) Final fallback (only if neither repo file worked)
+```if [ "${SECOND_FALLBACK:-0}" = "1" ]; then
+  flatpak install -y flathub com.vesc_project.VescTool
+fi
+```
+
+### 6) Serial permissions (once per user session)
+```sudo usermod -aG dialout $USER
+newgrp dialout
+```
+
+### 7) Run it
+```flatpak run com.vesc_project.VescTool
+```
+
+
 # Instructions to launch teleop & vesc:
 
 ### (1) Go to the workspace
