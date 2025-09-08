@@ -1,13 +1,13 @@
 # Vnavros2setup
 
-# Instructions to launch teleop & vesc:
+## Instructions to launch teleop & vesc:
 
-(1) Go to the workspace
+# (1) Go to the workspace
 cd ~/Vnavros2setup/workspaces/f1tenth_ws
 source /opt/ros/jazzy/setup.bash
 source install/setup.bash 2>/dev/null || true
 
-(2) Set device variables (per shell)
+# (2) Set device variables (per shell)
 export VESC_DEV=/dev/serial/by-id/usb-STMicroelectronics_ChibiOS_RT_Virtual_COM_Port_304-if00
 export JOY_DEV=/dev/input/js0
 
