@@ -4,6 +4,7 @@
 
 ### 1) Go to the repo
 ```cd ~/Vnavros2setup
+
 ```
 
 ### 2) Ensure flatpak + flathub
