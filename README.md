@@ -43,9 +43,7 @@ newgrp dialout
 ```
 
 ### 7) Run it
-```flatpak run com.vesc_project.VescTool
-
-```
+```flatpak run com.vesc_project.VescTool```
 
 
 # Instructions to launch teleop & vesc:
