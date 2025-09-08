@@ -3,9 +3,7 @@
 # Install command for Vesc + firmware (temp): 
 
 ### 1) Go to the repo
-```cd ~/Vnavros2setup
-
-```
+```cd ~/Vnavros2setup```
 
 ### 2) Ensure flatpak + flathub
 ```sudo apt update && sudo apt install -y flatpak
