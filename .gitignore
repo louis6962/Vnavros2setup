@@ -13,3 +13,10 @@ external/vesc_fw/vesc_fw_archive/
 # ...except this exact folder we want
 !external/vesc_fw/vesc_fw_archive/6.05/
 !external/vesc_fw/vesc_fw_archive/6.05/410_o_411_o_412/
+# ROS/colcon outputs
+build/
+install/
+log/
+**/build/
+**/install/
+**/log/

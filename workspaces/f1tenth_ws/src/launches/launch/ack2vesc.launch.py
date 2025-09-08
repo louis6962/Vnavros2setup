@@ -1,35 +1,31 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from ament_index_python.packages import get_package_share_directory
 import os
 
-def _first_existing(paths):
+def first_existing(paths):
     for p in paths:
-        if p and os.path.exists(p):
+        if p and os.path.isfile(p):
             return p
     return None
 
 def generate_launch_description():
-    # Prefer your source YAML (keeps your tuned values)
-    src = os.path.expanduser(
-        '~/Vnavros2setup-pr2/workspaces/f1tenth_ws/src/vesc/vesc_ackermann/config/ack2vesc.yaml'
-    )
-    # Fallbacks if needed
-    alt = os.path.expanduser('~/f1tenth_ws/src/vesc/vesc_ackermann/config/ack2vesc.yaml')
-    try:
-        from ament_index_python.packages import get_package_share_directory
-        inst = os.path.join(get_package_share_directory('vesc_ackermann'), 'config', 'ack2vesc.yaml')
-    except Exception:
-        inst = None
+    installed = os.path.join(get_package_share_directory('vesc_ackermann'),
+                             'config', 'ack2vesc.yaml')
+    ws = os.environ.get('WS', os.path.expanduser('~/Vnavros2setup/workspaces/f1tenth_ws'))
+    src = os.path.join(ws, 'src', 'vesc', 'vesc_ackermann', 'config', 'ack2vesc.yaml')
 
-    cfg = _first_existing([src, alt, inst])
-    params = [cfg] if cfg else []
+    cfg = first_existing([installed, src])
+    if not cfg:
+        raise RuntimeError(f"ack2vesc.yaml not found in:\n- {installed}\n- {src}")
+    print(f"[ack2vesc.launch] Using YAML: {cfg}")
 
     return LaunchDescription([
         Node(
             package='vesc_ackermann', executable='ackermann_to_vesc_node',
-            name='ackermann_to_vesc_node', output='screen',
-            parameters=params,
-            # Subscribe to the fixed topic your chain publishes:
-            remappings=[('cmd', '/ackermann_cmd')]
+            name='ackermann_to_vesc_node',
+            parameters=[cfg],
+            remappings=[('cmd', 'ackermann_cmd')],
+            output='screen'
         )
     ])
