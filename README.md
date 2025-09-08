@@ -1,6 +1,6 @@
 # Vnavros2setup
 
-## Instructions to launch teleop & vesc:
+# Instructions to launch teleop & vesc:
 
 ### (1) Go to the workspace
 ```
