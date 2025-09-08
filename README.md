@@ -3,7 +3,7 @@
 ## Instructions to launch teleop & vesc:
 
 ### (1) Go to the workspace
-cd ~/Vnavros2setup/workspaces/f1tenth_ws
+```cd ~/Vnavros2setup/workspaces/f1tenth_ws
 source /opt/ros/jazzy/setup.bash
 source install/setup.bash 2>/dev/null || true
 
