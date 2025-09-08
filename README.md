@@ -46,6 +46,7 @@ newgrp dialout
 
 ### 7) Run it
 ```flatpak run com.vesc_project.VescTool
+
 ```
 
 
