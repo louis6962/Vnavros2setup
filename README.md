@@ -20,6 +20,7 @@ source install/setup.bash
 
 ### 4) Launch using the variables
 ```ros2 launch launches driver.launch.py vesc_port:=$VESC_DEV joy_dev:=$JOY_DEV
+
 ```
 
 ## Launch command for 435i:
