@@ -20,3 +20,14 @@ log/
 **/build/
 **/install/
 **/log/
+# Build artifacts
+/build/
+/install/
+/log/
+**/build/
+**/install/
+**/log/
+
+# Python
+**/__pycache__/
+*.pyc
