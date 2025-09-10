@@ -48,28 +48,35 @@ newgrp dialout
 
 # Instructions to launch teleop & vesc:
 
-### (1) Go to the workspace
+### 1) Go to Workspace
 ```
-cd ~/Vnavros2setup/workspaces/f1tenth_ws
+cd Vnavros2setup/workspaces/f1tenth_ws
+```
+
+### 2) Install deps
+```
 source /opt/ros/jazzy/setup.bash
-source install/setup.bash 2>/dev/null || true
+rosdep update
+rosdep install --from-paths src --ignore-src -r -y || true
 ```
 
-### (2) Set device variables (per shell)
+### 3) Build & source
 ```
-export VESC_DEV=/dev/serial/by-id/usb-STMicroelectronics_ChibiOS_RT_Virtual_COM_Port_304-if00
-export JOY_DEV=/dev/input/js0
-```
-
-### 3) Build then re-source
-```
-colcon build --symlink-install --packages-up-to launches vesc_driver vesc vesc_ackermann f1tenth_teleop
+colcon build --symlink-install
 source install/setup.bash
 ```
 
-### 4) Launch using the variables
+### 4) Run the driver + bridge (defaults: VESC at /dev/ttyACM0)
 ```
-ros2 launch launches driver.launch.py vesc_port:=$VESC_DEV joy_dev:=$JOY_DEV
+ros2 launch launches vesc.launch.py
+```
+
+### 5) In a second terminal (build env again) run teleop
+```
+source /opt/ros/jazzy/setup.bash
+cd ~/Vnavros2setup/workspaces/f1tenth_ws
+source install/setup.bash
+ros2 launch launches teleop.launch.py
 ```
 
 # Install command for 435i (temp): 
