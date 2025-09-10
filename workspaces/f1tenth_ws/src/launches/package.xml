@@ -2,13 +2,17 @@
 <package format="3">
   <name>launches</name>
   <version>0.0.1</version>
-  <description>Local bring-up launch files (no CLI args).</description>
-  <maintainer email="evan@example.com">Evan McCulley</maintainer>
+  <description>Teleop → mux → ackermann_to_vesc → vesc_driver using existing YAMLs.</description>
+  <maintainer email="louis6962@users.noreply.github.com">Ian McCulley</maintainer>
   <license>MIT</license>
-
   <buildtool_depend>ament_cmake</buildtool_depend>
-
   <exec_depend>launch</exec_depend>
   <exec_depend>launch_ros</exec_depend>
-  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>joy</exec_depend>
+  <exec_depend>teleop_twist_joy</exec_depend>
+  <exec_depend>f1tenth_teleop</exec_depend>
+  <exec_depend>ackermann_mux</exec_depend>
+  <exec_depend>vesc_ackermann</exec_depend>
+  <exec_depend>vesc_driver</exec_depend>
+  <export><build_type>ament_cmake</build_type></export>
 </package>
