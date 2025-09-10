@@ -50,7 +50,7 @@ newgrp dialout
 
 ### 1) Go to Workspace
 ```
-cd Vnavros2setup/workspaces/f1tenth_ws
+cd ~/Vnavros2setup/workspaces/f1tenth_ws
 ```
 
 ### 2) Install deps
