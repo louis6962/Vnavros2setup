@@ -80,6 +80,15 @@ ros2 launch launches teleop.launch.py
 ```
 
 # Install command for 435i (temp): 
+sudo apt update
+sudo apt install -y v4l-utils \
+  ros-jazzy-librealsense2=2.56.4-1noble.20250722.140707 \
+  ros-jazzy-realsense2-camera=4.56.4-1noble.20250814.083109 \
+  ros-jazzy-realsense2-camera-msgs=4.56.4-1noble.20250806.110923
+
+# permissions (safe to re-run)
+sudo udevadm control --reload-rules && sudo udevadm trigger
+sudo usermod -aG video $USER
 
 
 # Launch command for 435i:
