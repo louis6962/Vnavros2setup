@@ -65,26 +65,40 @@ rosdep install --from-paths src --ignore-src -r -y || true
 colcon build --symlink-install
 source install/setup.bash
 ```
-
-### 4) Run the driver + bridge (defaults: VESC at /dev/ttyACM0)
+### 3) Find VESC and Joystick ports
 ```
-ros2 launch launches vesc.launch.py
+ls -l /dev/serial/by-id/
+ls -l /dev/input/js*
+# Vesc example result:
+# usb-STMicroelectronics_ChibiOS_RT_Virtual_COM_Port_304-if00 -> ../../ttyACM0
+
+# Joystick example result:
+# /dev/input/js0
 ```
 
-### 5) In a second terminal (build env again) run teleop
+### 4) Run the driver + bridge (defaults: VESC at /dev/ttyACM0) 
+```
+export VESC_DEV=/dev/ttyACM0
+ros2 launch launches vesc.launch.py vesc_port:=$VESC_DEV
+```
+
+### 5) In a second terminal (build env again) run teleop (defaults: Joy at /dev/input/js0) 
 ```
 source /opt/ros/jazzy/setup.bash
 cd ~/Vnavros2setup/workspaces/f1tenth_ws
 source install/setup.bash
-ros2 launch launches teleop.launch.py
+export JOY_DEV=/dev/input/js0
+ros2 launch launches teleop.launch.py joy_dev:=$JOY_DEV
 ```
 
 # Install command for 435i (temp): 
+```
 sudo apt update
 sudo apt install -y v4l-utils \
   ros-jazzy-librealsense2=2.56.4-1noble.20250722.140707 \
   ros-jazzy-realsense2-camera=4.56.4-1noble.20250814.083109 \
   ros-jazzy-realsense2-camera-msgs=4.56.4-1noble.20250806.110923
+```
 
 # permissions (safe to re-run)
 sudo udevadm control --reload-rules && sudo udevadm trigger
