@@ -32,13 +32,10 @@ def generate_launch_description():
             parameters=[teleop_yaml, {'use_sim_time': use_sim_time}]
         ),
 
-        # Twist -> Ackermann: /cmd_vel -> /cmd_teleop
+        # Twist → Ackermann: /cmd_vel → /ackermann_cmd (reads "twist_to_ack" section)
         Node(
             package='f1tenth_teleop', executable='twist_to_ackermann',
-            name='twist_to_ackermann', output='screen',
-            remappings=[('cmd_vel','cmd_vel'),
-                        ('cmd','cmd_vel'),
-                        ('ackermann_cmd','cmd_teleop')],
-            parameters=[{'use_sim_time': use_sim_time}]
+            name='twist_to_ack', output='screen',
+            parameters=[teleop_yaml, {'use_sim_time': use_sim_time}],
         ),
     ])
