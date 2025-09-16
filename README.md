@@ -58,6 +58,7 @@ cd ~/Vnavros2setup/workspaces/f1tenth_ws
 source /opt/ros/jazzy/setup.bash
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y || true
+sudo apt install -y ros-jazzy-asio-cmake-module ros-jazzy-io-context ros-jazzy-serial-driver
 ```
 
 ### 3) Build & source
