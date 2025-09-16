@@ -3,6 +3,8 @@ https://github.com/vedderb/vesc_tool/tree/master/res
 
 github for Vesc Firmwares
 
+https://github.com/vedderb/bldc
+
 # Install command for Vesc + firmware (temp): 
 
 ### 1) Go to the repo
