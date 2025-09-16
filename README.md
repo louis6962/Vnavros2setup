@@ -1,4 +1,7 @@
 # Vnavros2setup
+https://github.com/vedderb/vesc_tool/tree/master/res
+
+github for Vesc Firmwares
 
 # Install command for Vesc + firmware (temp): 
 
