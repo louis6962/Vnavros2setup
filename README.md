@@ -50,6 +50,18 @@ newgrp dialout
 ### 7) Run it
 ```flatpak run com.vesc_project.VescTool```
 
+# If requiring motor recalibration
+
+### 1) Go into vesctool (flatpak run or ./ depending on car)
+
+### 2) Turn car upside down and do foc detection with small inrunner (200g) with full vesc battery
+
+### 3) Set MotorSettings/Advanced/Maximum_input_voltage to 6.2V 
+
+### 4) Set AppSettings/General/EnableServoOutput to TRUE (very important cannot turn car without this)
+
+### 5) Write app config and motor settings to VESC
+
 
 # Instructions to launch teleop & vesc:
 
