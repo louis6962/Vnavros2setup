@@ -81,6 +81,21 @@ newgrp dialout
 ~~~
 
 
+
+# If requiring joy or vesc yaml reconfiguration (NOTE THAT A GIT PULL MAY OVERRIDE THESE SETTINGS AND NEED TO BE REDONE)
+
+### 1) Go to teleop_twist_joy.yaml
+~~~
+cd ~/Vnavros2setup/workspaces/f1tenth_ws/src/f1tenth_teleop/config
+nano teleop_twist_joy.yaml
+~~~
+
+### 2) Edit the needed axis and button using ros2 topic echo /joy and the number down for axis for controller while teleop is posting and and the enable button being l1. (Note index is 0, so the first axis that appears is axis 0 and the first button that appears is also button 0) 
+
+### 3) Exit out and save with ctrl+x
+
+
+
 # Instructions to launch teleop & vesc:
 
 ### 1) Go to Workspace
