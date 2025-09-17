@@ -1,0 +1,26 @@
+ackermann_to_vesc_node:
+  ros__parameters:
+    wheelbase: 0.325
+    
+    speed_to_erpm_gain: 2800.0
+    speed_to_erpm_offset: 0.0
+    
+    steering_angle_to_servo_gain: -0.8
+    steering_angle_to_servo_offset: 0.5
+    
+    max_speed: 3.0
+    min_speed: -3.0
+    max_steering_angle: 0.34
+    min_steering_angle: -0.34
+    
+    servo_min: 0.15
+    servo_max: 0.85
+    
+    max_acceleration: 2.0
+    max_deceleration: -3.0
+    
+    low_voltage_threshold: 6.0
+    steering_rate_limit: 3.0
+    
+    publish_tachometer: true
+    publish_imu: false

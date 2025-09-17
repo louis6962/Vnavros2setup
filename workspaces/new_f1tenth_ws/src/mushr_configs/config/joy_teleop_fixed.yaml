@@ -1,0 +1,16 @@
+joy_teleop:
+  ros__parameters:
+    human_control:
+      type: topic
+      interface_type: ackermann_msgs/msg/AckermannDriveStamped
+      topic_name: ackermann_cmd
+      deadman_buttons: [4]  # L1 button
+      axis_mappings:
+        drive-speed:
+          axis: 1           # Left stick Y
+          scale: 3.0        # Max speed 5 m/s
+          offset: 0.0
+        drive-steering_angle:
+          axis: 3           # Right stick X  
+          scale: 0.34       # Max steering ~20 degrees
+          offset: 0.0

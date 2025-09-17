@@ -1,0 +1,25 @@
+vesc_driver_node:
+  ros__parameters:
+    port: "/dev/ttyACM0"
+    
+    duty_cycle_min: -0.95
+    duty_cycle_max: 0.95
+    
+    current_min: -25.0
+    current_max: 25.0
+    brake_min: 0.0
+    brake_max: 15000.0
+    
+    speed_min: -25000.0
+    speed_max: 25000.0
+    
+    position_min: 0.0
+    position_max: 0.0
+    
+    servo_min: 0.15
+    servo_max: 0.85
+    
+    publish_tachometer: true
+    publish_imu: false
+    
+    command_timeout: 200
