@@ -126,7 +126,7 @@ make -j"$(nproc)"
 
 
 
-# If requiring joy or vesc yaml reconfiguration (NOTE THAT A GIT PULL MAY OVERRIDE THESE SETTINGS AND NEED TO BE REDONE)
+# If requiring joy or vesc yaml reconfiguration (NOTE THAT A GIT PULL MAY OVERRIDE THESE SETTINGS AND NEED TO BE REDONE) [This may be particularly relevant for Car 5)
 
 ### 1) Go to teleop_twist_joy.yaml
 ~~~
