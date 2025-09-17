@@ -62,6 +62,24 @@ newgrp dialout
 
 ### 5) Write app config and motor settings to VESC
 
+# If requiring bluetooth repairing
+### 1) Enter bluetoothctl in terminal
+
+### 2) Press the center bottom button and the share button at same time for around 5 seconds until lighbar rapidly flashes
+
+### 3) Enter "scan on" in bluetoothctl and find the wireless controller. Example:     (Note that there may be multiple wireless controllers in room you may need to trial and error and unpair) [Additionally may need to repeat step 2 if pairing mode on controller stops early]
+~~~
+[bluetooth]# [CHG] Device BB:8E:41:F5:5D:C7 Name: Wireless Controller
+[bluetooth]# [CHG] Device BB:8E:41:F5:5D:C7 Alias: Wireless Controller
+~~~
+
+### 4) Pair/trust/&connect with wireless controller. Example:
+~~~
+[bluetooth]# pair BB:8E:41:F5:5D:C7
+[bluetooth]# trust BB:8E:41:F5:5D:C7
+[bluetooth]# connect BB:8E:41:F5:5D:C7
+~~~
+
 
 # Instructions to launch teleop & vesc:
 
