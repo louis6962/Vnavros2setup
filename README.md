@@ -50,6 +50,50 @@ newgrp dialout
 ### 7) Run it
 ```flatpak run com.vesc_project.VescTool```
 
+
+# Install command for Vesc + firmware [if not flatpak] (temp): 
+### 1) Dev packages
+~~~
+sudo add-apt-repository -y universe
+sudo apt update
+sudo apt install -y \
+  build-essential git \
+  qtbase5-dev qtdeclarative5-dev qtquickcontrols2-5-dev \
+  qtmultimedia5-dev libqt5svg5-dev libqt5serialport5-dev \
+  qtconnectivity5-dev qtpositioning5-dev libqt5gamepad5-dev \
+  qttools5-dev qttools5-dev-tools \
+  qml-module-qtquick2 qml-module-qtquick-controls qml-module-qtquick-controls2 \
+  qml-module-qtquick-layouts qml-module-qtgraphicaleffects \
+  qml-module-qtmultimedia qml-module-qtbluetooth qml-module-qtpositioning \
+  qtbase5-private-dev qtdeclarative5-private-dev \
+  libgl1-mesa-dev libglu1-mesa-dev
+~~~
+
+### 2) Clone and configure with Qt5 qmake
+~~~
+git clone https://github.com/vedderb/vesc_tool.git
+cd vesc_tool
+
+# Force Qt5 toolchain (avoid Qt6 being picked)
+/usr/lib/qt5/bin/qmake -v   # should say "Using Qt version 5..."
+rm -f Makefile .qmake.stash
+
+/usr/lib/qt5/bin/qmake -config release "CONFIG += release_lin build_original exclude_fw"
+~~~
+
+### 3) Build & run
+~~~
+# While debugging packages, do serial to see first error:
+make -j1
+
+# Once clean, go parallel:
+make -j"$(nproc)"
+
+# Run (name matches current tag)
+./build/lin/vesc_tool_6.06
+~~~
+
+
 # If requiring motor recalibration
 
 ### 1) Go into vesctool (flatpak run or ./ depending on car)
