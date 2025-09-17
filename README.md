@@ -1,4 +1,9 @@
 # Vnavros2setup
+https://github.com/vedderb/vesc_tool/tree/master/res
+
+github for Vesc Firmwares
+
+https://github.com/vedderb/bldc
 
 # Install command for Vesc + firmware (temp): 
 
@@ -58,6 +63,7 @@ cd ~/Vnavros2setup/workspaces/f1tenth_ws
 source /opt/ros/jazzy/setup.bash
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y || true
+sudo apt install -y ros-jazzy-asio-cmake-module ros-jazzy-io-context ros-jazzy-serial-driver
 ```
 
 ### 3) Build & source
