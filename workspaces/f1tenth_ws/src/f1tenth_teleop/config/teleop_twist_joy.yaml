@@ -7,7 +7,7 @@ teleop:
     axis_linear:   { x: 1 }     # left stick up/down
     scale_linear:  { x: 0.8 }   # flip with -0.8 if needed
 
-    axis_angular:  { yaw: 2 }   # right stick left/right
+    axis_angular:  { yaw: 3 }   # right stick left/right
     scale_angular: { yaw: -1.5 } # flip with -1.5 if needed
 
 twist_to_ack:
