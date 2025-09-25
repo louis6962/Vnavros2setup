@@ -1,3 +1,6 @@
+
+### Sudo accounts sh script setup
+~~~
 #!/usr/bin/env bash
 # setup_shared.sh
 # Make one user's workspace (OWNER) shared with another (PEER) and require OWNER's
@@ -161,6 +164,13 @@ fi
 
 # Remind to re-login for new group membership
 echo "NOTE: If this is your first time adding users to '${SHARED_GROUP}', log out and back in (or run 'newgrp ${SHARED_GROUP}') to refresh group membership."
+~~~
 
-
-
+### Run command sudo accounts setup
+~~~
+sudo bash setup_shared.sh \
+  --owner airou \
+  --peer arc \
+  --ws /home/airou/Vnavros2setup \
+  --ros jazzy
+~~~
