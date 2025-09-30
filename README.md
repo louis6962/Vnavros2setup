@@ -200,11 +200,16 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 sudo usermod -aG video $USER
 
 
-# Launch command for 435i:
+# Launch command for 435i (old):
 ```
 ros2 launch realsense2_camera rs_launch.py device_type:=d435i enable_color:=true enable_depth:=true pointcloud.enable:=true align_depth:=true rgb_camera.profile:=1280x720x30 depth_module.profile:=1280x720x30
 ```
 
+# Launch command for 435i:
+
+~~~
+ros2 run realsense2_camera realsense2_camera_node --ros-args -p enable_color:=true -p spatial_filter.enable:=true -p temporal_filter.enable:=true -p accel_qos:=DEFAULT
+~~~
 
 
 # Install commands for S2Pro Lidar (temp): 
