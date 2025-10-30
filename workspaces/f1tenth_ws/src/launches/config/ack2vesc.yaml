@@ -3,4 +3,4 @@ ackermann_to_vesc_node:
     speed_to_erpm_gain: 12000.0
     speed_to_erpm_offset: 0.0
     steering_angle_to_servo_gain: -0.70
-    steering_angle_to_servo_offset: 0.45
+    steering_angle_to_servo_offset: 0.52
