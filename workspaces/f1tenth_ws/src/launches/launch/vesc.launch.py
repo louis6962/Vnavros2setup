@@ -22,12 +22,12 @@ def generate_launch_description():
         DeclareLaunchArgument('base_frame',   default_value='base_link'),
 
         # 1) ackermann_mux (YAML only)
-        Node(
-            package='ackermann_mux', executable='ackermann_mux',
-            name='ackermann_mux', output='screen',
-            parameters=[cfg('ackermann_mux_topics.yaml'),
-                        cfg('ackermann_mux_locks.yaml')]
-        ),
+        #Node(
+        #    package='ackermann_mux', executable='ackermann_mux',
+        #    name='ackermann_mux', output='screen',
+        #    parameters=[cfg('ackermann_mux_topics.yaml'),
+        #                cfg('ackermann_mux_locks.yaml')]
+        #),
 
         # 2) Ackermann -> VESC (YAML only), subscribe to mux output 'cmd_muxed'
         Node(
